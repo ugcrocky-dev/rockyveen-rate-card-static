@@ -1,0 +1,28 @@
+name: Fetch rate card PDF
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fetch-pdf.yml'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download PDF
+        run: |
+          curl -fsSL -o rate-card.pdf "https://litter.catbox.moe/zq42eg.pdf"
+          cp rate-card.pdf Rocky-Veen-Rate-Card-2026.pdf
+          ls -la *.pdf
+          file rate-card.pdf
+          sha1sum rate-card.pdf
+      - name: Commit PDFs
+        run: |
+          git config user.name "ratecard-bot"
+          git config user.email "ratecard-bot@users.noreply.github.com"
+          git add rate-card.pdf Rocky-Veen-Rate-Card-2026.pdf
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Add Rocky Veen rate card PDFs"
+          git push
