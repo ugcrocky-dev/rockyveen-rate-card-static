@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Download HTML
         run: |
-          curl -fsSL -o rate-card.html "https://temporary-prompt-tungsten-0x0xcob.vercel.app/rate-card.html"
-          curl -fsSL -o index.html "https://temporary-prompt-tungsten-0x0xcob.vercel.app/index.html"
+          curl -fsSL -o rate-card.html "https://litter.catbox.moe/0cond1.html"
+          printf '%s\n' '<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/rate-card.html"><title>Rocky Veen Rate Card</title></head><body><p><a href="/rate-card.html">Open Rate Card</a></p></body></html>' > index.html
           wc -c rate-card.html index.html
-          head -c 120 rate-card.html
+          head -c 120 rate-card.html; echo
       - name: Commit HTML
         run: |
           git config user.name "ratecard-bot"
