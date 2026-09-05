@@ -1,1 +1,480 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocky Veen · Rate Card 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f3efe4;
+      --mist: #d7e8dc;
+      --soft: #9bb5a6;
+      --gold: #d8b56a;
+      --teal: #3ecf9a;
+      --line: rgba(214, 232, 220, 0.14);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: Letter; margin: 0; }
+    html, body {
+      background: #070b0a;
+      color: var(--cream);
+      font-family: "Manrope", system-ui, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .page {
+      width: 8.5in;
+      height: 11in;
+      margin: 0 auto;
+      padding: 0.45in 0.5in 0.38in;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 55% at 0% 0%, rgba(62, 207, 154, 0.16), transparent 55%),
+        radial-gradient(ellipse 70% 50% at 100% 8%, rgba(216, 181, 106, 0.12), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 85% 100%, rgba(26, 122, 88, 0.18), transparent 55%),
+        linear-gradient(165deg, #0c1411 0%, #0a100e 45%, #101a16 100%);
+    }
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0.26in;
+      border: 1px solid var(--line);
+      pointer-events: none;
+    }
+    .top {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 0.25in;
+      align-items: end;
+      margin-bottom: 0.22in;
+      position: relative;
+      z-index: 1;
+    }
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 52px;
+      line-height: 0.92;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    h1 span {
+      display: block;
+      color: var(--teal);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 40px;
+      margin-top: 4px;
+    }
+    .intro {
+      margin-top: 12px;
+      max-width: 3.55in;
+      color: var(--soft);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .meta { text-align: right; padding-bottom: 4px; }
+    .meta .handle {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .meta .link {
+      display: block;
+      color: var(--mist);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 0.2in;
+      position: relative;
+      z-index: 1;
+    }
+    .stat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      padding: 11px 8px;
+      text-align: center;
+    }
+    .stat strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 25px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat span {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 600;
+    }
+    .section-label {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 9px;
+      position: relative;
+      z-index: 1;
+    }
+    .section-label h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .section-label p {
+      font-size: 10px;
+      color: var(--soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 0.18in;
+      position: relative;
+      z-index: 1;
+    }
+    .pkg {
+      border: 1px solid var(--line);
+      background: rgba(8, 14, 12, 0.55);
+      padding: 13px 11px 12px;
+      min-height: 1.85in;
+      display: flex;
+      flex-direction: column;
+    }
+    .pkg.featured {
+      background: linear-gradient(160deg, rgba(62, 207, 154, 0.16), rgba(8, 14, 12, 0.72) 55%);
+      border-color: rgba(62, 207, 154, 0.45);
+    }
+    .pkg .tag {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+    .pkg.featured .tag { color: var(--teal); }
+    .pkg h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 21px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .pkg .price {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+    .pkg .price small {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--soft);
+      margin-left: 2px;
+    }
+    .pkg ul { list-style: none; margin-top: auto; }
+    .pkg li {
+      font-size: 10.5px;
+      color: var(--mist);
+      line-height: 1.4;
+      padding: 2.5px 0 2.5px 11px;
+      position: relative;
+    }
+    .pkg li::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--teal);
+      position: absolute;
+      left: 0;
+      top: 7px;
+    }
+    .audience {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 0.16in;
+      position: relative;
+      z-index: 1;
+    }
+    .audience .item {
+      border-left: 2px solid var(--teal);
+      padding: 1px 0 1px 10px;
+    }
+    .audience .item strong {
+      display: block;
+      font-size: 12.5px;
+      margin-bottom: 2px;
+    }
+    .audience .item span {
+      font-size: 10px;
+      color: var(--soft);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 9px;
+      margin-bottom: 0.14in;
+      position: relative;
+      z-index: 1;
+    }
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+      padding: 12px 13px 11px;
+    }
+    .card h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .brands span {
+      font-size: 9.5px;
+      padding: 4px 7px;
+      border: 1px solid var(--line);
+      color: var(--mist);
+      background: rgba(0,0,0,0.18);
+    }
+    .note {
+      margin-top: 8px;
+      font-size: 9.5px;
+      color: var(--soft);
+    }
+    .proof-list { display: grid; gap: 6px; }
+    .proof-list > div {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: baseline;
+      border-bottom: 1px solid rgba(214, 232, 220, 0.08);
+      padding-bottom: 5px;
+    }
+    .proof-list strong {
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .proof-list em {
+      font-style: normal;
+      font-size: 9.5px;
+      color: var(--soft);
+      display: block;
+      margin-top: 1px;
+    }
+    .proof-list b {
+      font-size: 11.5px;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .footer {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 12px;
+      align-items: end;
+      position: relative;
+      z-index: 1;
+      padding-top: 0.1in;
+      border-top: 1px solid var(--line);
+    }
+    .footer p {
+      font-size: 10.5px;
+      color: var(--soft);
+      line-height: 1.5;
+    }
+    .footer .cta { text-align: right; }
+    .footer .cta strong {
+      display: block;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 23px;
+      margin-bottom: 3px;
+    }
+    .footer .cta span {
+      font-size: 11px;
+      color: var(--mist);
+      line-height: 1.55;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <div>
+        <div class="eyebrow">Rate Card · 2026</div>
+        <h1>Rocky Veen<span>AI · SaaS · Tech UGC</span></h1>
+        <p class="intro">
+          Cinematic product storytelling for AI tools, SaaS launches, and consumer tech.
+          Built for brands that want demos people actually watch — and reuse in ads.
+        </p>
+      </div>
+      <div class="meta">
+        <div class="handle">@rockyveen</div>
+        <div class="link">rockyveen.com</div>
+        <div class="link">instagram.com/rockyveen</div>
+        <div class="link">tiktok.com/@rockyveen</div>
+        <div class="link">collabs@rockyveen.com</div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><strong>225K+</strong><span>Instagram</span></div>
+      <div class="stat"><strong>2.1M+</strong><span>Monthly views</span></div>
+      <div class="stat"><strong>5.2%</strong><span>Engagement</span></div>
+      <div class="stat"><strong>50–300K</strong><span>Avg reel views</span></div>
+      <div class="stat"><strong>83% USA</strong><span>Audience</span></div>
+    </div>
+
+    <div class="section-label">
+      <h2>Packages</h2>
+      <p>From my collab emails · product gifted extra</p>
+    </div>
+
+    <div class="packages">
+      <div class="pkg">
+        <div class="tag">Entry</div>
+        <h3>TikTok Video</h3>
+        <div class="price">$350<small>USD</small></div>
+        <ul>
+          <li>Dedicated short-form video</li>
+          <li>Concept + edit</li>
+          <li>Organic posting</li>
+          <li>1 revision round</li>
+        </ul>
+      </div>
+      <div class="pkg featured">
+        <div class="tag">Most booked</div>
+        <h3>IG Reel</h3>
+        <div class="price">$500<small>USD</small></div>
+        <ul>
+          <li>Posted to @rockyveen</li>
+          <li>Hook + CTA cut</li>
+          <li>Caption + hashtags</li>
+          <li>Standard ask in my emails</li>
+        </ul>
+      </div>
+      <div class="pkg">
+        <div class="tag">Cross-post</div>
+        <h3>IG + TikTok</h3>
+        <div class="price">$600<small>USD</small></div>
+        <ul>
+          <li>One creative, two platforms</li>
+          <li>Strongest reach package</li>
+          <li>Best for launches</li>
+          <li>Usage discussed per brief</li>
+        </ul>
+      </div>
+      <div class="pkg">
+        <div class="tag">Full set</div>
+        <h3>UGC + Posted</h3>
+        <div class="price">$750<small>USD</small></div>
+        <ul>
+          <li>UGC file for ads ($400–$500 alone)</li>
+          <li>+ posted IG Reel</li>
+          <li>Best conversion bundle</li>
+          <li>Whitelisting +$150–$250 / 30d</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="audience">
+      <div class="item"><strong>AI / SaaS buyers</strong><span>Tool demos &amp; workflows</span></div>
+      <div class="item"><strong>25–44 core</strong><span>63% of audience</span></div>
+      <div class="item"><strong>5–7 day turnaround</strong><span>After brief approval</span></div>
+      <div class="item"><strong>Showcase / photo</strong><span>From $350 (as closed)</span></div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Selected collaborations</h3>
+        <div class="brands">
+          <span>Kling AI × Higgsfield</span>
+          <span>Pippit</span>
+          <span>CapCut</span>
+          <span>RecCloud</span>
+          <span>Manus AI</span>
+          <span>Lovart</span>
+          <span>TicNote</span>
+          <span>Timekettle</span>
+          <span>Dreame</span>
+          <span>Govee</span>
+          <span>Anker</span>
+          <span>PolarPro</span>
+          <span>NEEWER</span>
+          <span>SHEIN</span>
+          <span>Burberry</span>
+          <span>MNML</span>
+          <span>GitMind</span>
+          <span>PicWish</span>
+          <span>Seedance / Flova</span>
+          <span>CUE Air</span>
+          <span>PetPivot</span>
+          <span>BedStory</span>
+        </div>
+        <p class="note">Full archive: rockyveen.com · 280+ branded posts</p>
+      </div>
+      <div class="card">
+        <h3>Results brands cite</h3>
+        <div class="proof-list">
+          <div>
+            <strong>Kling AI × Higgsfield<em>AI fashion campaign reel</em></strong>
+            <b>120K views</b>
+          </div>
+          <div>
+            <strong>Pippit launch<em>Free trial + offer reel</em></strong>
+            <b>85–111K</b>
+          </div>
+          <div>
+            <strong>RecCloud<em>AI tool review</em></strong>
+            <b>94K views</b>
+          </div>
+          <div>
+            <strong>Seedance / Flova<em>AI video launch</em></strong>
+            <b>110K views</b>
+          </div>
+          <div>
+            <strong>Timekettle W4 Pro<em>Tech unboxing + UGC</em></strong>
+            <b>76K views</b>
+          </div>
+          <div>
+            <strong>PicWish<em>SaaS product photography</em></strong>
+            <b>92K views</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>
+        Organic posting included on posted packages. Paid usage / whitelisting quoted per campaign.
+        Product seeding is separate from the creator fee. Custom retainers available for 2–4 posts / month.
+      </p>
+      <div class="cta">
+        <strong>Let’s collab</strong>
+        <span>collabs@rockyveen.com<br/>rockyveen.com · @rockyveen</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
